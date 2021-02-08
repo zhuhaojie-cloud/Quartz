@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhj.test.mapper.SchedulerMapper">
+    <update id="update">
+        update schedule_job
+        set
+        job_id=#{schedule_job.job_id},
+        job_name=#{schedule_job.job_name},
+        bean_name=#{schedule_job.bean_name},
+        method_name=#{schedule_job.method_name},
+        params=#{schedule_job.params},
+        cron_expression=#{schedule_job.cron_expression}
+        where id=#{schedule_job.id}
+    </update>
+    <select id="get" resultType="com.zhj.test.entity.ScheduleJob">
+        select * from schedule_job
+        where id=#{id}
+    </select>
+    <delete id="delete">
+        delete schedule_job
+        where id=#{id}
+    </delete>
+    <select id="findList" resultType="com.zhj.test.entity.ScheduleJob">
+        select * from schedule_job
+    </select>
+</mapper>
